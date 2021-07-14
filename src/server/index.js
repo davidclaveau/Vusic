@@ -337,8 +337,10 @@ app.use(
   })
 );
 
+console.log("get ***************", app.get())
+
 //spotify routes
-app.get("/login", function (req, res) {
+app.get("https://invulnerable-mandarine-77316.herokuapp.com/login", function (req, res) {
   var state = generateRandomString(16);
   res.cookie(stateKey, state);
 
