@@ -262,7 +262,6 @@ const root = {
         });
         ids = ids.slice(0, ids.length - 1);
         return new Promise((resolve) => {
-          // console.log("***************", authToken);
           request(
             {
               url: `https://api.spotify.com/v1/audio-features?ids=${ids}`,
@@ -392,7 +391,6 @@ app.get("/callback", function (req, res) {
       if (!error && response.statusCode === 200) {
         // we can also pass the token to the browser to make requests from there
         authToken = body.access_token;
-        // console.log("res******************", res)
         console.log("body******************", body)
         res.redirect("http://localhost:3000/graphs/top-artists/popularity");
       } else {

@@ -39,7 +39,7 @@ export default function TopTracksAnalysis() {
                 <VusicLoader/>
               );
             }
-            if (!one.topTracks || !two.tracksAnalysis) {
+            if (!one.top10Tracks || !two.tracksAnalysis) {
               return <Error />
             }
               return (

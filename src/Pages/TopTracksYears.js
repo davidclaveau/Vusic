@@ -51,7 +51,7 @@ export default function RelatedArtists(props) {
               if (loadingOne || loadingTwo) {
                 return <VusicLoader />;
               }
-              if (!one.topTrackOffset || two.topTrackOffset) {
+              if (!one.topTrackOffset || !two.topTrackOffset) {
                 return <Error />
               }
               return (

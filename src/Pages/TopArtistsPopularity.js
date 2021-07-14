@@ -44,10 +44,6 @@ export default function TopArtistsPopularity() {
     });
   };
 
-  // console.log("loading", loading)
-  // console.log("error", error)
-  // console.log("data", data)
-
   return (
     <div>
       <Query query={GET_ARTIST}>
