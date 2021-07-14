@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# Vusic
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Why wait until the end of the year for Spotify to *send* you your listening data? You could have it all in the palm of your hand today! **Vusic** allows you visualize your Spotify account's listening data with a click of a button.
 
-## Available Scripts
 
-In the project directory, you can run:
+Created by [Jiaqi Liu](https://github.com/JIAQI13), [Neerav Patel](https://github.com/neerav-dev), David Claveau
 
-### `yarn start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Final Product
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Prompts user to login to their Spotify account to fetch user data.
 
-### `yarn test`
+Bubble graphs show top artists and tracks in popularity, as well as each artist's followers.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Selecting an artist will show related artists as well!
 
-### `yarn build`
+An interactive chord chart plots the user's top artists and each artist's genres. Shows correlations in top artists' genres and Spotify's eclectic genre pool.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Heatmap showcases user's top 100 tracks and their release dates - learn if you're an old soul or a modern music lover!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Track analysis showcases the user's top 10 tracks music analysis as created by Spotify.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `yarn eject`
+## Tech Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+NodeJS with Express as backend, using GraphQL to fetch data from Spotify's API. Uses ReactJS with D3.js to create an intuitive UI and visualize the data with smooth animations.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Setup
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Install dependencies with `npm install`.
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Dependencies
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Apollo 
+* Bootstrap
+* Cookie-parser
+* Cors
+* D3
+* D3-Hexbin
+* Envdot
+* Express
+* Morgan
+* React
+* React-D3-Radar
+* React-Dom
+* React-Loader-Spinner
+* React-Router-Dom
+* Sass
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Enjoy!
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
