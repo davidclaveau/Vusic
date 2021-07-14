@@ -3,6 +3,7 @@ import gql from "graphql-tag";
 import { Query } from "react-apollo";
 import BubblesGraphTTP from "../components/BubblesGraphTTP";
 import VusicLoader from "../components/VusicLoader";
+import Error from "../components/Error";
 
 export const GET_TRACK = gql`
   query GetTrack {
@@ -31,6 +32,9 @@ export default function TopTracks(props) {
         {({ loading, data }) => {
           if (loading) {
             return <VusicLoader />;
+          }
+          if (!data.topTracks) {
+            return <Error />
           }
           data.topTracks.forEach((element) => {
             element.numbers = element.popularity;

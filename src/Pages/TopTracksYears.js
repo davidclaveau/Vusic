@@ -3,6 +3,7 @@ import gql from "graphql-tag";
 import { Query } from "react-apollo";
 import HeatMap from "../components/HeatMap";
 import VusicLoader from "../components/VusicLoader";
+import Error from "../components/Error";
 
 export default function RelatedArtists(props) {
   const GET_TRACKS_INFO_FIRST = gql`
@@ -49,6 +50,9 @@ export default function RelatedArtists(props) {
             {({ loading: loadingTwo, data: two }) => {
               if (loadingOne || loadingTwo) {
                 return <VusicLoader />;
+              }
+              if (!one.topTrackOffset || two.topTrackOffset) {
+                return <Error />
               }
               return (
                 <>

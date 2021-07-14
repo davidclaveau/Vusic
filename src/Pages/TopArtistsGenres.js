@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import ChordChart from '../components/ChordChart';
 import VusicLoader from '../components/VusicLoader';
+import Error from '../components/Error';
 
 export const GET_ARTIST = gql`
   query GetArtist {
@@ -28,6 +29,9 @@ export default function TopArtistsPopularity () {
             return (
               <VusicLoader />
             );
+          }
+          if (!data.topArtists) {
+            return <Error />
           }
           return(
             <ChordChart graphData={data}></ChordChart>
