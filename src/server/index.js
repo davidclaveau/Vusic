@@ -9,6 +9,8 @@ const querystring = require('querystring');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
 
+const app = express();
+
 //global authToken
 let authToken;
 
@@ -260,7 +262,6 @@ const root = {
         });
         ids = ids.slice(0, ids.length - 1);
         return new Promise((resolve) => {
-          // console.log("***************", authToken);
           request(
             {
               url: `https://api.spotify.com/v1/audio-features?ids=${ids}`,
@@ -307,6 +308,7 @@ const client_id = process.env.CLIENT_ID; // Your client id
 const client_secret = process.env.CLIENT_SECRET; // Your secret
 const redirect_uri = "https://invulnerable-mandarine-77316.herokuapp.com/callback"; // Your redirect uri
 
+
 /**
  * Generates a random string containing numbers and letters
  * @param  {number} length The length of the string
@@ -325,7 +327,6 @@ const generateRandomString = function (length) {
 
 const stateKey = "spotify_auth_state";
 
-const app = express();
 app.use(cors()).use(morgan()).use(cookieParser());
 app.use(
   "/graphql",
@@ -372,7 +373,6 @@ app.get("/callback", function (req, res) {
       })
     );
   } else {
-    res.clearCookie(stateKey);
     var authOptions = {
       url: "https://accounts.spotify.com/api/token",
       form: {

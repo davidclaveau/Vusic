@@ -1,9 +1,10 @@
 import React from "react";
 import gql from "graphql-tag";
-import { Query } from "react-apollo";
+import { Query, useQuery } from "react-apollo";
 import { useHistory } from "react-router";
 import BubblesGraphTAP from "../components/BubblesGraphTAP";
 import VusicLoader from "../components/VusicLoader";
+import Error from "../components/Error";
 
 export const GET_ARTIST = gql`
   query GetArtist {
@@ -29,6 +30,8 @@ export default function TopArtistsPopularity() {
   // to the artist's id, looking for related artists
   const history = useHistory();
 
+  const { loading, error, data } = useQuery(GET_ARTIST);
+
   const onClick = (id, name, images, external_urls) => {
     history.push({
       pathname: `${id}/related-artists`,
@@ -47,6 +50,9 @@ export default function TopArtistsPopularity() {
         {({ loading, data }) => {
           if (loading) {
             return <VusicLoader />;
+          }
+          if (!data.topArtists) {
+            return <Error />
           }
           data.topArtists.forEach((element) => {
             element.numbers = element.popularity;
