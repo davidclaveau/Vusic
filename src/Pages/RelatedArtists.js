@@ -4,6 +4,7 @@ import { Query } from 'react-apollo';
 import ForceChart from '../components/ForceChart'
 import { useLocation } from 'react-router';
 import '../components/ForceChart.scss'
+import Error from '../components/Error';
 
 
 export default function RelatedArtists(props) {
@@ -43,6 +44,6 @@ export default function RelatedArtists(props) {
   );
   }
 
-  return (<></>);
+  return (<Error />);
 
 }

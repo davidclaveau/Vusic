@@ -4,6 +4,7 @@ import { Query } from "react-apollo";
 import { useHistory } from "react-router";
 import BubblesGraphTAF from "../components/BubblesGraphTAF";
 import VusicLoader from "../components/VusicLoader";
+import Error from "../components/Error";
 
 export const GET_ARTIST = gql`
   query GetArtist {
@@ -51,6 +52,9 @@ export default function TopArtistsFollowers() {
         {({ loading, data }) => {
           if (loading) {
             return <VusicLoader />;
+          }
+          if (!data.topArtists) {
+            return <Error />
           }
           data.topArtists.forEach((element) => {
             element.numbers = element.followers.total;

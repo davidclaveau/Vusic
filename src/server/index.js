@@ -9,6 +9,8 @@ const querystring = require('querystring');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
 
+const app = express();
+
 //global authToken
 let authToken;
 
@@ -260,7 +262,6 @@ const root = {
         });
         ids = ids.slice(0, ids.length - 1);
         return new Promise((resolve) => {
-          // console.log("***************", authToken);
           request(
             {
               url: `https://api.spotify.com/v1/audio-features?ids=${ids}`,
@@ -303,8 +304,8 @@ const root = {
 };
 
 //spotify login prepare
-const client_id = "cfa601e4abca4a2f87f33698a4b4d293"; // Your client id
-const client_secret = "a17ceaf1443a4003a2d42458d6e7d8e7"; // Your secret
+const client_id = process.env.CLIENT_ID; // Your client id
+const client_secret = process.env.CLIENT_SECRET; // Your secret
 const redirect_uri = "http://localhost:4000/callback"; // Your redirect uri
 
 /**
@@ -325,7 +326,6 @@ const generateRandomString = function (length) {
 
 const stateKey = "spotify_auth_state";
 
-const app = express();
 app.use(cors()).use(morgan()).use(cookieParser());
 app.use(
   "/graphql",
@@ -372,7 +372,6 @@ app.get("/callback", function (req, res) {
       })
     );
   } else {
-    res.clearCookie(stateKey);
     var authOptions = {
       url: "https://accounts.spotify.com/api/token",
       form: {
@@ -392,6 +391,7 @@ app.get("/callback", function (req, res) {
       if (!error && response.statusCode === 200) {
         // we can also pass the token to the browser to make requests from there
         authToken = body.access_token;
+        console.log("body******************", body)
         res.redirect("http://localhost:3000/graphs/top-artists/popularity");
       } else {
         res.redirect(

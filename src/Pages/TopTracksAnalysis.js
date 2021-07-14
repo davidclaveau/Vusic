@@ -3,6 +3,7 @@ import gql from "graphql-tag";
 import { Query } from "react-apollo";
 import RadarGraph from "../components/RadarGraph";
 import VusicLoader from "../components/VusicLoader";
+import Error from "../components/Error";
 
 const TOP_TRACKS = gql`
   query TOP_TRACKS {
@@ -37,6 +38,9 @@ export default function TopTracksAnalysis() {
               return (
                 <VusicLoader/>
               );
+            }
+            if (!one.top10Tracks || !two.tracksAnalysis) {
+              return <Error />
             }
               return (
                 <RadarGraph dataGraphFirst={one} dataGraphSecond={two}></RadarGraph>
