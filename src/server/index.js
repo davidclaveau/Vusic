@@ -340,7 +340,7 @@ app.use(
 console.log("get ***************", app.get())
 
 //spotify routes
-app.get("https://invulnerable-mandarine-77316.herokuapp.com/login", function (req, res) {
+app.get("/login", function (req, res) {
   var state = generateRandomString(16);
   res.cookie(stateKey, state);
 
@@ -437,4 +437,3 @@ app.get("/refresh_token", function (req, res) {
 const port = process.env.SERVER_PORT || 8000;
 
 app.listen(port);
-console.log(`Running a GraphQL API server at https://invulnerable-mandarine-77316.herokuapp.com/${port}/graphql`);
