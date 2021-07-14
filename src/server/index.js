@@ -306,7 +306,8 @@ const root = {
 //spotify login prepare
 const client_id = process.env.CLIENT_ID; // Your client id
 const client_secret = process.env.CLIENT_SECRET; // Your secret
-const redirect_uri = "http://localhost:4000/callback"; // Your redirect uri
+const redirect_uri = "https://invulnerable-mandarine-77316.herokuapp.com/callback"; // Your redirect uri
+
 
 /**
  * Generates a random string containing numbers and letters
@@ -391,11 +392,10 @@ app.get("/callback", function (req, res) {
       if (!error && response.statusCode === 200) {
         // we can also pass the token to the browser to make requests from there
         authToken = body.access_token;
-        console.log("body******************", body)
-        res.redirect("http://localhost:3000/graphs/top-artists/popularity");
+        res.redirect("https://invulnerable-mandarine-77316.herokuapp.com/graphs/top-artists/popularity");
       } else {
         res.redirect(
-          "http://localhost:3000/graphs/top-artists/popularity" +
+          "https://invulnerable-mandarine-77316.herokuapp.com/graphs/top-artists/popularity" +
           querystring.stringify({
             error: "invalid_token",
           })
@@ -432,6 +432,7 @@ app.get("/refresh_token", function (req, res) {
   });
 });
 
-const port = process.env.SERVER_PORT || 4000;
+const port = process.env.SERVER_PORT || 8000;
+
 app.listen(port);
-console.log(`Running a GraphQL API server at localhost:${port}/graphql`);
+console.log(`Running a GraphQL API server at https://invulnerable-mandarine-77316.herokuapp.com/${port}/graphql`);
