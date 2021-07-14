@@ -5,35 +5,33 @@ Why wait until the end of the year for Spotify to *send* you your listening data
 
 Created by [Jiaqi Liu](https://github.com/JIAQI13), [Neerav Patel](https://github.com/neerav-dev), David Claveau
 
----
-
 ## Final Product
 
 Prompts user to login to their Spotify account to fetch user data.
+![](https://raw.githubusercontent.com/davidclaveau/Vusic/master/public/readme_images/HomeScreen.png)
 
 Bubble graphs show top artists and tracks in popularity, as well as each artist's followers.
+![](https://raw.githubusercontent.com/davidclaveau/Vusic/master/public/readme_images/BubblesPopularity.png)
 
 Selecting an artist will show related artists as well!
+![](https://raw.githubusercontent.com/davidclaveau/Vusic/master/public/readme_images/RelatedArtists.png)
 
 An interactive chord chart plots the user's top artists and each artist's genres. Shows correlations in top artists' genres and Spotify's eclectic genre pool.
+![](https://raw.githubusercontent.com/davidclaveau/Vusic/master/public/readme_images/ChordChart.png)
 
 Heatmap showcases user's top 100 tracks and their release dates - learn if you're an old soul or a modern music lover!
+![](https://raw.githubusercontent.com/davidclaveau/Vusic/master/public/readme_images/HeatMap.png)
 
 Track analysis showcases the user's top 10 tracks music analysis as created by Spotify.
-
----
+![](https://raw.githubusercontent.com/davidclaveau/Vusic/master/public/readme_images/TrackAnalysis.png)
 
 ## Tech Stack
 
 NodeJS with Express as backend, using GraphQL to fetch data from Spotify's API. Uses ReactJS with D3.js to create an intuitive UI and visualize the data with smooth animations.
 
----
-
 ## Setup
 
 Install dependencies with `npm install`.
-
----
 
 ## Dependencies
 
@@ -52,8 +50,6 @@ Install dependencies with `npm install`.
 * React-Loader-Spinner
 * React-Router-Dom
 * Sass
-
----
 
 Enjoy!
 
