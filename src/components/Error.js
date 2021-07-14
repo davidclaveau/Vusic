@@ -11,7 +11,7 @@ export default function Error() {
         <img id="brand" src="/vusic_icon.png" alt="vusic-icon"></img>
         <Button
           variant="login-button"
-          href="http://localhost:4000/login"
+          href="https://invulnerable-mandarine-77316.herokuapp.com/login"
         >
           View it!
         </Button>
