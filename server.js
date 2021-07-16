@@ -337,6 +337,8 @@ app.use(
   })
 );
 
+console.log("get ***************", app.get())
+
 //spotify routes
 app.get("/login", function (req, res) {
   var state = generateRandomString(16);
@@ -392,7 +394,6 @@ app.get("/callback", function (req, res) {
       if (!error && response.statusCode === 200) {
         // we can also pass the token to the browser to make requests from there
         authToken = body.access_token;
-        console.log("body******************", body)
         res.redirect("http://localhost:3000/graphs/top-artists/popularity");
       } else {
         res.redirect(
@@ -442,4 +443,3 @@ app.get('*', (req, res) => {
 const port = process.env.SERVER_PORT || 4000;
 
 app.listen(port);
-console.log(`Running a GraphQL API server at localhost:${port}/graphql`);
