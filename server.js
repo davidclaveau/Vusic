@@ -337,8 +337,6 @@ app.use(
   })
 );
 
-console.log("get ***************", app.get())
-
 //spotify routes
 app.get("/login", function (req, res) {
   var state = generateRandomString(16);
