@@ -81,7 +81,7 @@ export default function HexagonGraph(props) {
       .attr("stroke", '#292929')
       .attr("stroke-width", "172px")
       .on("click", function () {
-        window.location.href = "https://invulnerable-mandarine-77316.herokuapp.com/login";
+        window.location.href = "http://localhost:4000/login";
       })
       .on('mouseover', function (d) {
         d3.select(this)
@@ -107,7 +107,7 @@ export default function HexagonGraph(props) {
         <img id="brand" src="/vusic_icon.png" alt="vusic-icon"></img>
         <Button
           variant="login-button"
-          href="https://invulnerable-mandarine-77316.herokuapp.com/login"
+          href="http://localhost:4000/login"
         >
           View it!
         </Button>
