@@ -8,6 +8,7 @@ const { buildASTSchema } = require('graphql');
 const querystring = require('querystring');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
+const path = require('path')
 
 const app = express();
 
@@ -432,6 +433,13 @@ app.get("/refresh_token", function (req, res) {
   });
 });
 
+app.use(express.static('public'));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+})
+
 const port = process.env.SERVER_PORT || 4000;
+
 app.listen(port);
 console.log(`Running a GraphQL API server at localhost:${port}/graphql`);
